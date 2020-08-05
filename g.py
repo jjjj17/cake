@@ -1,21 +1,4 @@
-""" import itertools 
 
-def solution(s):
-    if s is not None and len(s) < 200:
-        for letter in s:
-            print(len(s))
-            if letter.find(s) < len(s):
-                print(letter.find(s))
-                pos = letter.find(s)
-    else:
-        print("wrong")
-            
-        
-    
-solution('sdgsd')
- """
-
- 
 import itertools
 
 def word(w):
@@ -28,8 +11,14 @@ def word(w):
     print('trabajanding')
     for i in range(1,len(w)):
         for x in itertools.combinations_with_replacement(w, i):
-            l.append(x)
-    print('trabajanding')
+            combo_string = blank.join(x)
+            if combo_string in w and len(combo_string)<=(len(w)/2):
+                list_of_combos.append(combo_string)
+    unique_combos = set(list_of_combos)
+    print(unique_combos)
+
+"""     print('trabajanding')
+    print(len(l))
     for combo in l:
         combo_string = blank.join(combo)
         if combo_string in w and len(combo_string)<=(len(w)/2):
@@ -39,26 +28,16 @@ def word(w):
     for x in newset:
         for i in range(1,len(w)):
             if x[0:i] == w[0:i]:
-                #print(x[0:i])
-                #print(x[i:])
-                #print(w[i:])
-                #print(len(w)/len(x))
-                #print(w[0:i+len(x)])
-                #x[0:i], w[0:i+len(x)]
-                #print(w.count(x))
-                abc = w.count('abc')
-                thelen = len(w)
-                div = abc % thelen
-                print('abc count')
-                print(abc)
-                print('largo palabra')
-                print(thelen)
-                print('resto')
-                print(div)
+                if x[0:i] == w[i:i+len(x)]:
+                    print('yes!')
+                    print(w.count(x[0:i]))
+        if len(w)/w.count(x) == len(x):
+            print(w.count(x)) """
+
 
 
         #la excepcion de que sean solo letras iguales
 
 
 
-word("abcabcabc")
+word("abcabcabcabcabc")

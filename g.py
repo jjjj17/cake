@@ -41,28 +41,15 @@ def word(w):
 #word("abababab")
 def a(word):
     combination = {}
-    for i in range(1, (len(word)//2)+1):
-        if word[:i] in (word[i:]):
-            if len(word)/word.count(word[:i]) == len(word[:i]):
-                combination[word[:i]] = word.count(word[:i])
-            else:
-                pass
-    max_value_keys = [count for combo, count in combination.items() if combination[combo] == max(combination.values())]
-    print(max_value_keys)
-    print(combination)
-        #for j in range(0, len(word), i):
-            #ext = word[j:j+i]
-            #print(j)
-            #print(ext)
-    """ larg = len(word)
-    for i in range(1,len(word)):
-        myset = set()
-        print('iter 1: '+ str(i))
-        for x in range(0,(len(word)//i)):
-            print('iter 2: ' + str(x))
-            myset.add(word[x:x+i])
-            print('extracto: ' + word[x:x+i])
-        print(myset) """
+    if len(word) < 200 and word != '':
+        for i in range(1, int(len(word)/2)+1):
+            if word[:i] in (word[i:]):
+                if len(word)/word.count(word[:i]) == len(word[:i]):
+                    combination[word[:i]] = word.count(word[:i])
+    max_value = [count for combo, count in combination.items() if combination[combo] == max(combination.values())]
+    try:
+        return(max_value[0])
+    except IndexError:
+        return(1)
 
-
-a('abcabcabcabc')
+print(a('abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde'))
